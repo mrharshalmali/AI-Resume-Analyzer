@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <style>
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        #searchBox {
+            width: 400px;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        /* dark mode */
+        .dark {
+            background: #121212;
+            color: white;
+        }
+
+        .dark .card {
+            background: #1e1e1e;
+            color: white;
+        }
+
+        .dark #searchBox {
+            background: #2c2c2c;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        .dark b,
+        .dark p,
+        .dark h3 {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="search-container">
+        <input type="text" id="searchBox" placeholder="Search History..." onkeyup="searchHistory()">
+    </div>
+
+    <div id="history"></div>
+
+
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
+    </script>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+    const supabaseClient = window.supabase.createClient(
+        "https://hhtbahmaencprbwkukrq.supabase.co",             //this is url address of our supabase 
+        "sb_publishable_zSrh_i_5c8tISKvR-kkMvQ_FUeKzrXR"        //this is key help to authenticate,database,backend and frontend
+    );
+
+    async function showHistory() {
+
+        const user = await supabaseClient.auth.getUser();
+
+        const res = await supabaseClient
+            .from("resume_history")
+            .select("*")
+            .eq("user_id", user.data.user.id);
+
+        const history = document.getElementById("history");
+        history.innerHTML = "";
+
+
+        if (res.data.length === 0) {
+
+            history.innerHTML = `
+    
+                <div class="card">
+                    <h3>No History Found</h3>
+
+                    <p>Analyze your first resume 🚀</p>
+                </div>
+    
+            
+                `;
+
+            return;
+        }
+
+        res.data.forEach((item) => {
+
+            const formattedResult = item.result
+
+                .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")
+
+                .replace(/### (.*?)(\n|$)/g,
+                    "<h3>$1</h3>")
+
+                .replace(/\n/g, "<br>");
+
+            history.innerHTML += `
+            
+<div class="card">
+
+    <p><b>Resume:</b> ${item.resume}</p>
+
+    <p><b>Goal:</b> ${item.goal}</p>
+
+    <div>
+        <b>Result:</b><br><br>
+        ${formattedResult}
+    </div>
+
+    <br>
+
+    <p>Date:${new Date(item.created_at).toLocaleDateString("en-IN")}</p>
+
+    <p>Time:${new Date(item.created_at).toLocaleTimeString("en-IN")}</p>
+  
+<hr>
+</div>
+
+
+`;
+        });
+    }
+
+    showHistory();
+
+
+    function searchHistory() {
+
+        let searchText = document.getElementById("searchBox").value.toLowerCase();
+
+        let cards = document.querySelectorAll(".card");
+
+        cards.forEach((card) => {
+
+            if (card.innerText.toLowerCase().includes(searchText)) {
+                card.style.display = "block";
+            }
+            else {
+                card.style.display = "none";
+            }
+
+        });
+
+    }
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,477 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Analyzer</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:#eef7f1;
+      display:flex;
+      flex-direction:column;
+    }
+
+    nav{
+      width:100%;
+      padding:20px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:white;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#222;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:15px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      background:#261c1c;
+      color:white;
+      padding:10px 18px;
+      border-radius:8px;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px;
+    }
+
+    .card{
+      width:90%;
+      max-width:900px;
+      background:white;
+      padding:50px;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+      text-align:center;
+    }
+
+    .card h1{
+      font-size:50px;
+      margin-bottom:20px;
+      color:#222;
+    }
+
+    .card p{
+      font-size:18px;
+      color:#555;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .buttons a{
+      text-decoration:none;
+      padding:14px 30px;
+      border-radius:10px;
+      background:#261c1c;
+      color:white;
+      font-size:17px;
+      transition:0.3s;
+    }
+
+    .buttons a:hover{
+      transform:scale(1.05);
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        padding:15px;
+      }
+
+      .card{
+        padding:30px;
+      }
+
+      .card h1{
+        font-size:35px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <div class="logo">
+      Resume Analyzer
+    </div>
+
+    <div class="nav-links">
+      <a href="login.html">Login</a>
+      <a href="sign_up.html">Sign Up</a>
+    </div>
+
+  </nav>
+
+
+  <section class="hero">
+
+    <div class="card">
+
+      <h1>AI Resume Analyzer</h1>
+
+      <p>
+        Upload your resume and get AI-powered analysis,
+        skills detection, missing skills, roadmap guidance,
+        and interview preparation instantly.
+      </p>
+
+      <div class="buttons">
+        <a href="login.html">Get Started</a>
+        <a href="sign_up.html">Create Account</a>
+      </div>
+
+    </div>
+
+  </section>
+
+</body>
+</html>
+``` -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Analyzer</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #eef7f1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navbar */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      background: #262222;
+
+      padding: 20px 30px;
+
+      color: white;
+
+      width: 100%;
+      box-sizing: border-box;
+
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+      z-index: 1000;
+    }
+
+    .navbar h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .nav-links a {
+
+      color: white;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+
+      padding: 10px 18px;
+
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+
+      color: #00ffcc;
+    }
+
+    /* Hero Section */
+
+    .hero {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      margin-top: 100px;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 900px;
+      background: white;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .card h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .card p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      padding: 14px 30px;
+      border-radius: 10px;
+      background: #261c1c;
+      color: white;
+      font-size: 17px;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      transform: scale(1.05);
+    }
+
+    @media(max-width:768px) {
+
+      .navbar {
+        padding: 15px;
+      }
+
+      .card {
+        padding: 30px;
+      }
+
+      .card h1 {
+        font-size: 35px;
+      }
+
+    }
+
+
+    .footer {
+
+      width: 100%;
+
+      background: #262222;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 18px;
+
+      margin-top: auto;
+    }
+
+    .footer p {
+
+      margin: 0;
+
+      font-size: 15px;
+    }
+
+    /* dark mode */
+    #themeBtn {
+      width: auto;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      background: white;
+      color: #262222;
+      transition: 0.3s;
+    }
+
+    /* #themeBtn:hover{
+    transform: scale(1.05);
+} */
+
+    .dark #themeBtn {
+      background: #00ffcc;
+      color: black;
+    }
+
+    .dark {
+      background: #121212;
+      color: white;
+    }
+
+    .dark .card {
+      background: #1e1e1e;
+      color: white;
+    }
+
+    .dark .card p {
+      color: #ddd;
+    }
+
+    .dark .navbar,
+    .dark .footer {
+      background: #000;
+    }
+
+    .dark .card h1 {
+      color: white;
+    }
+    .dark .buttons a{
+    background:#00ffcc;
+    color:black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav class="navbar">
+
+    <h3>Resume Analyzer</h3>
+
+    <div class="nav-links">
+
+      <a href="#">Home</a>
+
+      <a href="dashboard.html">Dashboard</a>
+
+      <a href="history.html">History</a>
+
+      <a href="login.html">Sign in</a>
+
+      <button onclick="toggleTheme()" id="themeBtn">
+        🌙 Theme
+      </button>
+
+    </div>
+
+  </nav>
+
+  <!-- Hero Section -->
+
+  <section class="hero">
+
+    <div class="card">
+
+      <h1>AI Resume Analyzer</h1>
+
+      <p>
+        Upload your resume and get AI-powered analysis,
+        skills detection, missing skills, roadmap guidance,
+        and interview preparation instantly.
+      </p>
+
+      <div class="buttons">
+
+        <a href="login.html">Get Started</a>
+
+        <a href="sign_up.html">Create Account</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+
+    <p>
+      © 2026 Resume Analyzer | Powered by AI
+    </p>
+
+  </footer>
+
+  <script>
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+    }
+
+    function toggleTheme() {
+
+      document.body.classList.toggle("dark");
+
+      if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+      }
+      else {
+        localStorage.setItem("theme", "light");
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
