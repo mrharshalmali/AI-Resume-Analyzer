@@ -53,14 +53,14 @@
         } */
 
         .container button {
-    width: 95%;
-    padding: 10px;
-    background: rgb(38, 28, 28);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
+            width: 95%;
+            padding: 10px;
+            background: rgb(38, 28, 28);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
         button:hover {
             background: rgb(38, 28, 28);
@@ -170,23 +170,23 @@
         /* } */
 
         /* dark mode */
-  #themeBtn{
-    width: auto;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-     font-weight:bold;
-    background:white;
-    color:#262222;
-    transition:0.3s;
-    font-size: 14px;
-}
+        #themeBtn {
+            width: auto;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            background: white;
+            color: #262222;
+            transition: 0.3s;
+            font-size: 14px;
+        }
 
-.dark #themeBtn{
-    background:#00ffcc;
-    color:black;
-}
+        .dark #themeBtn {
+            background: #00ffcc;
+            color: black;
+        }
 
         .dark {
             background: #121212;
@@ -219,13 +219,13 @@
         }
 
         .dark a {
-    color: #00ffcc;
-}
+            color: #00ffcc;
+        }
 
-.dark button[type="submit"]{
-    background:#00ffcc;
-    color:#000;
-}
+        .dark button[type="submit"] {
+            background: #00ffcc;
+            color: #000;
+        }
     </style>
 </head>
 
@@ -243,9 +243,9 @@
 
             <a href="login.html">Sign in</a>
 
-          <button onclick="toggleTheme()" id="themeBtn">
-    🌙 Theme
-</button>
+            <button onclick="toggleTheme()" id="themeBtn">
+                🌙 Theme
+            </button>
         </div>
     </nav>
 
@@ -320,21 +320,21 @@
 
     <script>
 
-      if(localStorage.getItem("theme") === "dark"){
-    document.body.classList.add("dark");
-}
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
 
-function toggleTheme(){
+        function toggleTheme() {
 
-    document.body.classList.toggle("dark");
+            document.body.classList.toggle("dark");
 
-    if(document.body.classList.contains("dark")){
-        localStorage.setItem("theme","dark");
-    }
-    else{
-        localStorage.setItem("theme","light");
-    }
-}
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+            }
+            else {
+                localStorage.setItem("theme", "light");
+            }
+        }
 
     </script>
 </body>
