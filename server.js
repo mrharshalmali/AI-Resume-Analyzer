@@ -193,7 +193,7 @@ else {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "login.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 
