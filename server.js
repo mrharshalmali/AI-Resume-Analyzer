@@ -11,6 +11,8 @@ const pdfParse = require("pdf-parse");
 
 const mammoth = require("mammoth");
 
+const path = require("path");
+
 const app = express();
 
 const upload = multer({
@@ -38,6 +40,7 @@ app.use((req, res, next) => {
 
 });
 
+
 app.use(cors({
   origin: "*"
 }));
@@ -51,6 +54,8 @@ app.use(express.urlencoded({
   extended: true
 }));
 // app.options("*", cors());
+
+app.use(express.static(__dirname));
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY
@@ -188,7 +193,7 @@ else {
 });
 
 app.get("/", (req, res) => {
-  res.send("Server Running");
+  res.sendFile(path.join(__dirname, "login.html"));
 });
 
 
